@@ -15,10 +15,12 @@ cred.jsonは{"identifier":str,"pwd":str}。
 """
 
 from atproto import Client
-
+from pathlib import Path
 import json
 
-with open("./cred.json","r") as f:
+cred_file = Path(__file__).parent / "cred.json"
+
+with open(cred_file,"r") as f:
     cred = json.load(f)
 
 client = Client(base_url='https://bsky.social')

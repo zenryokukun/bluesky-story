@@ -10,7 +10,7 @@ from bluesky import post_text
 MAX_FILE = 6
 
 # 物語の現在位置
-STORY_POS_FILE = Path() / "current.json"
+STORY_POS_FILE = Path(__file__).parent / "current.json"
 
 # 現在位置を取得
 with open(STORY_POS_FILE,"r") as f:

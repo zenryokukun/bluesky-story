@@ -69,3 +69,28 @@ bluesky投稿用のモジュールです。
 }
 ```
 
+## cron備忘
+
+### 内容表示
+
+```bash
+crontab -l
+```
+
+### 編集
+
+```bash
+crontab -e
+```
+
+### 登録内容
+
+```
+0 2,6,10,14,18,22 * * * /usr/bin/python3 /home/crypto/bluesky-story/main.py > /home/crypto/bluesky-story.log 2>&1
+```
+
+cronからの起動は、ログインスクリプト等も流れていないので、各種コマンドのパスも通っていない状態。フルパスで記載します。
+
+Pythonスクリプト内のパス指定も、```"./cred.json"```のような相対パスや、```Path()```のようにcwdを取得しても、想定通りに動きます。cwdはLinuxのルートのフォルダになります。
+
+```Path(__file__)```のように実行するファイルを起点にパスを取得すれば大丈夫です。

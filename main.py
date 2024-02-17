@@ -20,7 +20,7 @@ file_id = current_pos["file_id"]
 story_id = current_pos["story_id"]
 
 # 物語ファイルを取得
-story_file = Path() / "story" / f"story{file_id}.json"
+story_file = Path(__file__).parent / "story" / f"story{file_id}.json"
 
 # 物語ファイルを読み取り、現在位置に応じた物語をstory_txtに設定
 with open(story_file,"r",encoding="utf-8") as f:
